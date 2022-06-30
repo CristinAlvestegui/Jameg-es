@@ -1,17 +1,20 @@
 import Dao
-from PIL import Image
+from PIL import Image #Importando biblioteca de manipulação de fotos
 
 db_connect = Dao.Connection()
 con = db_connect.cursor()
 
 def inseriJame(dado):
-    try:
-        sql = "inesrt into Jamegoes(codigo, dado) values('', {})".format(dado)
-        con.execute(sql)
-        db_connect.commit()
-        print("{} Inserido".format(con.rowcount))
-    except Exception as erro:
-        print(erro)
+    imag = Image.open() #aqui deve ser qualquer foto
+    if imag.open:
+        try:
+            sql = "insert into Jamegoes(codigo, dado) values('', {})".format(dado)
+            con.execute(sql)                  
+            db_connect.commit()
+            imag.save() #'foto que foi selecionada deve ser salval com o jamego'
+            print("{} Inserido".format(con.rowcount))
+        except Exception as erro:
+            print(erro)
 
 def consuJame():
     try:
@@ -39,3 +42,5 @@ def excluirJame(cod):
         print('{} Excluido!'.format(con.rowcount))
     except Exception as erro:
         print(erro)
+
+def criarPasta():
