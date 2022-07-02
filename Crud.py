@@ -1,20 +1,22 @@
 import Dao
-from PIL import Image #Importando biblioteca de manipulação de fotos
-
-db_connect = Dao.Connection()
+#from PIL import Image #Importando biblioteca de manipulação de fotos continuara....em outra.
+db_connect = Dao.connectar()
 con = db_connect.cursor()
 
-def inseriJame(dado):
-    imag = Image.open() #aqui deve ser qualquer foto
-    if imag.open:
+def inserirJame(dado):
+    docu = open(r"C:\Users\cristina.asubieta\Documents\Fotos\foto7.jpg")  #aqui deve ser qualquer foto
+    #imag.show() #se não conseguimos...então faremos com arquivos de txt  ;( ou arquivos....sla :(
+    if docu.open:
         try:
             sql = "insert into Jamegoes(codigo, dado) values('', {})".format(dado)
-            con.execute(sql)                  
+            con.execute(sql)
             db_connect.commit()
-            imag.save() #'foto que foi selecionada deve ser salval com o jamego'
+            docu.save() #Agora salvamo o arquivo com o jamego                                                   ******             'foto que foi selecionada deve ser salval com o jamego'
             print("{} Inserido".format(con.rowcount))
         except Exception as erro:
             print(erro)
+        else:
+            docu.close()
 
 def consuJame():
     try:
@@ -43,4 +45,7 @@ def excluirJame(cod):
     except Exception as erro:
         print(erro)
 
-def criarPasta():
+#def criarPasta():
+    #aqui temos que criar a condição de: quando 3 fotos foram salvas com o msm jamego, o sistema deve criar uma pasta.
+    #os.makedirs comando para criar pasta
+    #tbm devemos lembrar que cada jamegão vai ter seu própio caminho o sistema deve reconhecer cada um deles.
