@@ -4,7 +4,7 @@ import Crud
 this.opcao = -1
 
 def menu1():
-    print('\nEscolha umas das opções abaixo: \n\n' +
+    print('\nBem-vindo ao seu diretorio, escolha uma pasta para Jamegar:\n\n' +
         '1. Abrir Fotos\n'                         +
         '2. Abrir Documentos\n'                    +
         '3. Abrir Aplicativos\n'                   +
@@ -24,13 +24,11 @@ def executarop1():
     while(this.opcao !=0):
         menu1()
         if this.opcao == 1:
-            print('Elemento ainda em desenvolvimento...agradecemos a sua compreensão')
+            print('Por favor selecione um dos arquivos de teste disponives na pasta a seguir:')
+            Crud.abrirPasta()
         elif this.opcao == 2:
             print('Por favor selecione um dos arquivos de teste disponives na pasta a seguir:')
             Crud.abrirPasta()
-
-            docu = input()
-
             executarop2()
         elif this.opcao == 3:
             print('Componente ainda em desenvolvimento...agradecemos a sua compreensão')
@@ -40,8 +38,8 @@ def executarop2():
         menu2()
         if this.opcao == 1:
             print('Imforme o nome do novo Jamego: ')
-            dado = input()
-            Crud.inseriJame(dado)
+            jameg = input()
+            Crud.inseriJame(jameg)
         elif this.opcao == 2:
             print('Informe o nome ou código do Jamego que deseja consultar: ')
             dado = input()
