@@ -1,4 +1,5 @@
 import Dao
+import os
 #from PIL import Image #Importando biblioteca de manipulação de fotos
 
 db_connect = Dao.connection()
@@ -21,7 +22,7 @@ def consuJame():
         sql = 'select * from Jamegoes'
         con.execute(sql)
         for(codigo, jameg) in con:
-            print("Código: {}, jameg: {}".formar(codigo, jameg))
+            print("Código: {}, jameg: {}".format(codigo, jameg))
     except Exception as erro:
         print(erro)
 
@@ -44,14 +45,14 @@ def excluirJame(jameg):
         print(erro)
 
 def abrirPasta():
-    try:
-        file = open('C:\\Users\\cristina.asubieta\\Documents\\teste.txt', 'r')
-        arti = file.read()
-        print(arti)
-    except Exception as erro:
-        print(erro)
-    else:
-        file.close()
+    return ('\nBem-vindo ao seu diretorio!\n' +
+            '\nEscolha um arquivo: ')
+    arvo = 'C:\\Users\\calve\\Documents'  # 'C:\\Users\\cristina.asubieta\\Documents\\'
+    for (root, dirs, files) in os.walk(arvo):
+        print(root)
+        print(dirs)
+        print(files)
+        print('\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n')
 
 
 #def jamegarFile(jameg=docu):
