@@ -24,7 +24,7 @@ def consuJame(nome):
         for(codigo, jameg) in con:
             print("Código: {}, jameg: {}".format(codigo, nome))
     except Exception as erro:
-        print(erro)
+        print(erro) #tent fazer um new input?....tem que ser com o input.
 
 def atualiJame(jameg, campo, novoJameg):
     try:
