@@ -17,12 +17,12 @@ def inseriJame(codigo, jameg):
     except Exception as erro:
             print(erro)
 
-def consuJame():
+def consuJame(nome):
     try:
-        sql = 'select * from Jamegoes'
+        sql = "select * from Jamegoes where jameg = '{}'".format(nome)
         con.execute(sql)
         for(codigo, jameg) in con:
-            print("Código: {}, jameg: {}".format(codigo, jameg))
+            print("Código: {}, jameg: {}".format(codigo, nome))
     except Exception as erro:
         print(erro)
 
